@@ -12,14 +12,14 @@ $(document).ready(function () {
   //code to apply the past, present, or future class to each time block
   function timeBlock() {
     
-    var hour = moment().hours();
+    var hourSlot = moment().hours();
 
     $(".time-block").each(function() {
         var currHour = parseInt($(this).attr("id"));
  
-        if (currHour > hour) {
+        if (currHour > hourSlot) {
             $(this).addClass("future");
-        } else if (currHour === hour) {
+        } else if (currHour === hourSlot) {
             $(this).addClass("present");
         } else {
             $(this).addClass("past");
@@ -40,8 +40,9 @@ $(document).ready(function () {
   $("#hour-16 .description").val(localStorage.getItem("hour-16"));
   $("#hour-17 .description").val(localStorage.getItem("hour-17"));
 
-})
-
+  
  // Display today's day and date
  var time = dayjs().format('MMM D, YYYY');
-$('#currentDay').text(time);
+ $('#currentDay').text(time);
+
+});
